@@ -200,6 +200,7 @@ tr.result-row:last-child {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: #000;
+  margin: 0 0;
 }
 
 .results-meta {
@@ -219,24 +220,26 @@ tr.result-row:last-child {
 .results-ref-list {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   width: 100%;
-  flex-wrap: wrap;      /* 空间不足时换行，避免溢出列宽 */
+  flex-wrap: nowrap;    /* 强制一行内展示 */
+
 }
 
 .results-ref {
-  flex: 0 0 auto;  /* 根据内容宽度自适应，允许宽度不同 */
+  flex: 0 1 auto;  /* 宽度可不同，但在父容器内可收缩 */
   min-width: 0;
+
 }
 
 .results-ref img {
   width: auto;            /* 宽度随比例变化 */
-  max-width: 100%;        /* 单张图不会超过父容器宽度 */
+  max-width: 100%;        /* 防止单张图宽度超过列宽 */
   height: clamp(110px, 12vw, 160px);
   display: block;
   border-radius: 0;
   object-fit: contain;
-  background: #fff;
 }
 
 /* Section 5: black background + vertical centering for paired blocks */
@@ -285,10 +288,13 @@ tr.result-row:last-child {
 
 .results-divider {
   border: 0;
-  border-top: 1px solid #e6e6e6;
-  margin: 22px 0;
+  border-top: 1px solid #706666;
+  margin-top: 2rem;
 }
 
+.results-grid {
+  margin: 22px 0;
+}
 /* Make Results prompt boxes equal height */
 .results-grid > .column {
   display: flex;
@@ -296,7 +302,7 @@ tr.result-row:last-child {
 }
 
 .results-grid .custom-prompt-box {
-  height: clamp(70px, 12vw, 100px);
+  height: clamp(70px, 12vw, 140px);
   display: flex;
   flex-direction: column;
   margin-top: 8px;
@@ -319,7 +325,8 @@ tr.result-row:last-child {
 /* Black background + vertical centering for video5 refs+prompt pair */
 .results-pair-wrapper {
   background: #000;
-  padding: 12px 16px;
+  padding: 0px 16px;
+  margin: 0 12px;
 }
 
 .results-pair-wrapper .columns {

@@ -67,7 +67,7 @@
 
   .prompt-text {
     font-style: bold;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
   }
@@ -325,12 +325,16 @@
         <div class="column is-full-width">
 
           <h2 class="title is-3 has-text-centered">🎬&nbsp;&nbsp; Results &nbsp;&nbsp;🎬</h2>
-
-          <div class="columns is-multiline results-grid">
+          <h3 class="title is-4">Multi-Reference Subject-to-Video Generation</h3>
+          <p>
+            ID-Crafter can generate <b>natural and dynamic details</b> across multiple subjects from given text, such as
+            <b>fabric wrinkles induced by movement, wind-swept hair, and crumbs scattered from torn bread</b>.
+          </p>
+          <div class="columns is-multiline results-grid is-centered">
             <div class="column is-6">
               <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video1.mp4" loading="lazy"
                 preload="metadata" autoplay loop muted playsinline></video>
-              <div class="results-ref-list mt-3">
+              <div class="results-ref-list">
                 <div class="results-ref">
                   <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video1_sub1.png" alt="reference 1" />
                 </div>
@@ -354,7 +358,7 @@
             <div class="column is-6">
               <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video2.mp4" loading="lazy"
                 preload="metadata" autoplay loop muted playsinline></video>
-              <div class="results-ref-list mt-3">
+              <div class="results-ref-list">
                 <div class="results-ref">
                   <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video2_sub1.png" alt="reference 1" />
                 </div>
@@ -369,11 +373,17 @@
                 </div>
               </div>
             </div>
-
+          </div>
+          <div class="columns is-multiline results-grid">
+            <h3 class="title is-4">ID-preserving Generation</h3>
+            <p>
+              ID-Crafter faithfully preserves the identity of reference subjects (including people and items) while
+              producing vivid videos aligned with the given prompt.
+            </p>
             <div class="column is-6">
               <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video3.mp4" loading="lazy"
                 preload="metadata" autoplay loop muted playsinline></video>
-              <div class="results-ref-list mt-3">
+              <div class="results-ref-list">
                 <div class="results-ref">
                   <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video3_sub1.png" alt="reference 1" />
                 </div>
@@ -395,7 +405,7 @@
             <div class="column is-6">
               <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video4.mp4" loading="lazy"
                 preload="metadata" autoplay loop muted playsinline></video>
-              <div class="results-ref-list mt-3">
+              <div class="results-ref-list">
                 <div class="results-ref">
                   <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video4_sub1.png" alt="reference 1" />
                 </div>
@@ -414,61 +424,204 @@
             </div>
           </div>
           <h3 class="title is-4">Comparison Results</h3>
-          <div class="columns is-multiline results-grid">
-            <div class="column is-6">
-              <div class="video-wrapper">
-                <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_id.mp4" loading="lazy"
-                  preload="metadata" autoplay loop muted playsinline>
-                </video>
-                <div
-                  style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
-                  <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">ID-Crafter(Ours)</p>
-                </div>
-              </div>
-            </div>
-            <div class="column is-6">
-              <div class="video-wrapper">
-                <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_ph.mp4" loading="lazy"
-                  preload="metadata" autoplay loop muted playsinline>
-                </video>
-                <div
-                  style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
-                  <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="results-pair-wrapper">
-            <div class="columns is-multiline is-vcentered">
+          <tr class="result-row">
+            <!-- Example 5 -->
+            <div class="columns is-multiline results-grid">
               <div class="column is-6">
-
-                <div class="columns is-mobile is-variable is-2">
-              <div class="column">
-                <img class="teaser-ref-img" loading="lazy" src="assets/examples/ID-Crafter_s2v_video5_sub1.png"
-                  alt="reference 1">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_id.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">ID-Crafter (Ours)</p>
+                  </div>
+                </div>
               </div>
-              <div class="column">
-                <img class="teaser-ref-img" loading="lazy" src="assets/examples/ID-Crafter_s2v_video5_sub2.png"
-                  alt="reference 2">
-              </div>
-              <div class="column">
-                <img class="teaser-ref-img" style="aspect-ratio: 1 / 1;" loading="lazy"
-                  src="assets/examples/ID-Crafter_s2v_video5_sub3.png" alt="reference 3">
+              <div class="column is-6">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_ph.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="results-pair-wrapper">
+              <div class="columns is-multiline is-vcentered">
+                <div class="column is-6">
+                  <div class="results-ref-list">
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub1.png" alt="reference 1" />
+                    </div>
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub2.png" alt="reference 2" />
+                    </div>
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub3.png" alt="reference 3" />
+                    </div>
+                  </div>
+                </div>
 
-          <div class="column is-6">
+                <div class="column is-6">
+                  <div class="prompt-text">
+                    Under warm orange soft light, on a park lawn covered with ginkgo leaves, sunlight filters through
+                    branches, casting light spots. A chubby light brown hedgehog tops before a fuzzy acorn, stretches
+                    pink
+                    paws to nudge it gently, and the acorn rolls slowly once on the leaves, full of cozy autumn charm.
 
-            <div class="prompt-text">
-              In forest where pink-an-white cherry lossoms fall, the boy squas down to call a white cat softly, holding
-              out a dried fish. The cat is wary at first, then approacs slowly—after
-              taking the fish, it gently rubs its head against the boy’s palm, with petals landi on their
-              shoulders.
+
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        </div>
+            <hr class="results-divider" />
+          </tr>
+          <tr class="result-row">
+            <!-- Example 6 -->
+            <div class="columns is-multiline results-grid mt-4">
+              <div class="column is-6">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video6_id.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">ID-Crafter (Ours)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video6_ph.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="results-pair-wrapper">
+              <div class="columns is-multiline is-vcentered">
+                <div class="column is-6">
+                  <div class="results-ref-list">
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video6_sub1.png" alt="reference 1" />
+                    </div>
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video6_sub2.png" alt="reference 2" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column is-6">
+                  <div class="prompt-text">
+                    A sulphur-crested cockatoo swoops to grab its corner. He freezes, bread crumbs cover his sweatshirt,
+                    and the cockatoo shakes the bread while tilting its head.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="results-divider" />
+          </tr>
+          <tr class="result-row">
+            <!-- Example 7 -->
+            <div class="columns is-multiline results-grid mt-4">
+              <div class="column is-6">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video7_id.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">ID-Crafter (Ours)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video7_ph.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="results-pair-wrapper">
+              <div class="columns is-multiline is-vcentered">
+                <div class="column is-6">
+                  <div class="results-ref-list">
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video7_sub1.png" alt="reference 1" />
+                    </div>
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video7_sub2.png" alt="reference 2" />
+                    </div>
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video7_sub3.png" alt="reference 3" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column is-6">
+                  <div class="prompt-text">
+                    In the gravel area of the Martian desert, Trump, in a spacesuit and in boots, touches the texture of
+                    a reddish-brown Martian rock with his gloved hand. He leans over slightly, the helmet visor reflects
+                    the surrounding red sand, and several gravels of different sizes are beside him.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="results-divider" />
+          </tr>
+          <tr class="result-row">
+            <!-- Example 8 -->
+            <div class="columns is-multiline results-grid mt-4">
+              <div class="column is-6">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video8_id.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">ID-Crafter (Ours)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="video-wrapper">
+                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video8_ph.mp4" loading="lazy"
+                    preload="metadata" autoplay loop muted playsinline></video>
+                  <div
+                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="results-pair-wrapper">
+              <div class="columns is-multiline is-vcentered">
+                <div class="column is-6">
+                  <div class="results-ref-list">
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video8_sub1.png" alt="reference 1" />
+                    </div>
+                    <div class="results-ref">
+                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video8_sub2.png" alt="reference 2" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column is-6">
+                  <div class="prompt-text">
+                    In a room, a woman wearing pink headphones gently closes her eyes with a smile. Her face shows sheer
+                    enjoyment as she is lost in the music.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
         </div>
       </div>
     </div>
