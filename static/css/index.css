@@ -343,3 +343,15 @@ tr.result-row:last-child {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
+
+/* Action buttons row: keep arXiv, Code, Cite on one line */
+.actions-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+.actions-row .link-block {
+  display: inline-flex;
+}
