@@ -22,6 +22,64 @@
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('cite-btn');
+      if (!btn) return;
+      var bibtex = '@misc{pan2025idcraftervlmgroundedonlinerl,\n' +
+        '  title={ID-Crafter: VLM-Grounded Online RL for Compositional Multi-Subject Video Generation},\n' +
+        '  author={Panwang Pan and Jingjing Zhao and Yuchen Lin and Chenguo Lin and Chenxin Li and Hengyu Liu and Tingting Shen and Yadong MU},\n' +
+        '  year={2025},\n' +
+        '  eprint={2511.00511},\n' +
+        '  archivePrefix={arXiv},\n' +
+        '  primaryClass={cs.CV},\n' +
+        '  url={' + window.location.href + '}\n' +
+        '}';
+      function copyText(t) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(t).then(function () {
+            notify('Citation copied to clipboard', 'is-success');
+          }).catch(function () {
+            fallbackCopy(t);
+          });
+        } else {
+          fallbackCopy(t);
+        }
+      }
+      function fallbackCopy(t) {
+        var ta = document.createElement('textarea');
+        ta.value = t;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        notify(ok ? 'Citation copied to clipboard' : 'Copy failed, please copy manually', ok ? 'is-success' : 'is-danger');
+      }
+      function notify(msg, type) {
+        var n = document.createElement('div');
+        n.className = 'notification ' + type;
+        n.textContent = msg;
+        n.style.position = 'fixed';
+        n.style.top = '20px';
+        n.style.right = '20px';
+        n.style.zIndex = '9999';
+        document.body.appendChild(n);
+        setTimeout(function () { if (n && n.parentNode) n.parentNode.removeChild(n); }, 2500);
+      }
+      btn.addEventListener('click', function () { copyText(bibtex); });
+    });
+  </script>
+
+
+  <link rel="preload" as="video" href="video/main-480p.webm" type="video/webm" crossorigin>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
 
@@ -84,23 +142,24 @@
     text-transform: uppercase;
   }
 
-  .video-wrapper {
-    position: relative;
-    /* 关键！绝对定位的子元素以这个容器为基准 */
-    display: inline-block;
-    /* 容器宽度适配视频，不占满整行 */
-    /* 可选：限制视频最大宽度，按需调整 */
-    max-width: 600px;
-  }
-
-  /* 保留视频原有样式（可按需补充） */
-  .results-media {
-    width: 100%;
-    /* 视频宽度自适应容器 */
-    display: block;
-    /* 消除视频底部默认空隙 */
-  }
-</style>
+  <style>
+    .video-wrapper {
+      position: relative;
+      /* Key: absolutely positioned children are anchored to this container */
+      display: inline-block;
+      /* Container width adapts to the video, does not occupy the full row */
+      /* Optional: limit the maximum video width as needed */
+      max-width: 600px;
+    }
+  
+    /* Keep the original video styles (extend as needed) */
+    .results-media {
+      width: 100%;
+      /* Video width adapts to the container */
+      display: block;
+      /* Remove the default bottom gap under videos */
+    }
+  </style>
 
 <body>
 
@@ -147,6 +206,7 @@
               <span class="author-block"><i>* equal contribution, † project lead</i></span>
             </div>
             <div class="column has-text-centered">
+              <!-- Button area: add a Cite button -->
               <span class="link-block">
                 <a href="" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
@@ -166,6 +226,12 @@
                   <span>Code</span>
                 </a>
               </span>
+              <span class="link-block">
+                <button id="cite-btn" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>Cite</span>
+                </button>
+              </span>
             </div>
 
           </div>
@@ -177,9 +243,9 @@
   <!-- Section 2: Teaser -->
   <section class="hero teaser">
     <div class="container is-max-desktop">
-      <!-- 主容器：居中布局，控制最大宽度 -->
+      <!-- Main container: centered layout with controlled max width -->
       <div class="hero-body max-w-5xl mx-auto bg-white rounded-lg shadow-sm p-6 md:p-8 ">
-        <!-- 2. 参考图区域 -->
+        <!-- 2. Reference image area -->
         <div class="rounded-xl pb-2">
 
           <video class="w-full rounded-lg" src="assets/examples/ID-Crafter_s2v_video1.mp4" loading="lazy" autoplay loop
@@ -209,7 +275,6 @@
                   In a cherry blossom forest where pink-and-white cherry blossoms fall, the boy squats down to call a
                   white cat softly, holding out a dried fish. The cat is wary at first, then approaches slowly—after
                   taking the fish, it gently rubs its head against the boy’s palm, with petals landing on their
-                  shoulders.
                 </div>
               </div>
             </div>
@@ -327,7 +392,7 @@
           <h2 class="title is-3 has-text-centered">🎬&nbsp;&nbsp; Results &nbsp;&nbsp;🎬</h2>
           <h3 class="title is-4">Multi-Reference Subject-to-Video Generation</h3>
           <p>
-            ID-Crafter can generate <b>natural and dynamic details</b> across multiple subjects from given text, such as
+ID-Crafter can generate <b>natural and dynamic details</b> across multiple subjects from given text, such as
             <b>fabric wrinkles induced by movement, wind-swept hair, and crumbs scattered from torn bread</b>.
           </p>
           <div class="columns is-multiline results-grid is-centered">
@@ -642,6 +707,8 @@
                 <tr class="result-row">
                   <td><video src="./assets/examples/comparsion_1.mp4" loading="lazy" autoplay loop muted></video></td>
 
+                  <!-- Insert a script after index.js in the head to handle copy and notifications -->
+                  <script src="./static/js/index.js"></script>
                   <!-- <td><img loading="lazy" src="./static/images/object/gt/00.png"></td>
                   <td><video src="./static/images/object/ours/00.mp4" width="80%" loading="lazy" autoplay loop muted></video></td>
                   <td><video src="./static/images/object/ours/splited/00.mp4" width="80%" autoplay loop muted></video> -->
