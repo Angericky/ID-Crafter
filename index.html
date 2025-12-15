@@ -59,14 +59,14 @@
   }
 
   .hero-body .prompt-text {
-    font-style: bold;
+    font-weight: bold;
     font-size: 0.8rem;
     display: flex;
     align-items: center;
   }
 
   .prompt-text {
-    font-style: bold;
+    font-weight: bold;
     font-size: 0.8rem;
     display: flex;
     align-items: center;
@@ -76,7 +76,7 @@
   .prompt-title {
     font-size: 1rem;
     font-weight: bold;
-    padding-bottom: 0.rem;
+    padding-bottom: 0;
     display: flex;
     justify-content: center;
     /* font-style: italic; */
@@ -153,7 +153,8 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/paulpanwang/IDCrafter" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/paulpanwang/IDCrafter"
+                  class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false"
                       data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 496 512" data-fa-i2svg="">
@@ -217,8 +218,6 @@
               that</b>
             <br>
             <b>generates subject-consistent videos with multiple references. </b>
-            h2>
-            </< /h2>
           </div>
         </div>
       </div>
@@ -424,61 +423,60 @@
             </div>
           </div>
           <h3 class="title is-4">Comparison Results</h3>
-          <tr class="result-row">
-            <!-- Example 5 -->
-            <div class="columns is-multiline results-grid">
-              <div class="column is-6">
-                <div class="video-wrapper">
-                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_id.mp4" loading="lazy"
-                    preload="metadata" autoplay loop muted playsinline></video>
-                  <div
-                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
-                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">ID-Crafter (Ours)</p>
-                  </div>
-                </div>
-              </div>
-              <div class="column is-6">
-                <div class="video-wrapper">
-                  <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_ph.mp4" loading="lazy"
-                    preload="metadata" autoplay loop muted playsinline></video>
-                  <div
-                    style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
-                    <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
-                  </div>
+
+          <!-- Example 5 -->
+          <div class="result-row columns is-multiline results-grid">
+            <div class="column is-6">
+              <div class="video-wrapper">
+                <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_id.mp4" loading="lazy"
+                  preload="metadata" autoplay loop muted playsinline></video>
+                <div
+                  style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                  <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">ID-Crafter (Ours)</p>
                 </div>
               </div>
             </div>
-            <div class="results-pair-wrapper">
-              <div class="columns is-multiline is-vcentered">
-                <div class="column is-6">
-                  <div class="results-ref-list">
-                    <div class="results-ref">
-                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub1.png" alt="reference 1" />
-                    </div>
-                    <div class="results-ref">
-                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub2.png" alt="reference 2" />
-                    </div>
-                    <div class="results-ref">
-                      <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub3.png" alt="reference 3" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="column is-6">
-                  <div class="prompt-text">
-                    Under warm orange soft light, on a park lawn covered with ginkgo leaves, sunlight filters through
-                    branches, casting light spots. A chubby light brown hedgehog tops before a fuzzy acorn, stretches
-                    pink
-                    paws to nudge it gently, and the acorn rolls slowly once on the leaves, full of cozy autumn charm.
-
-
-                  </div>
+            <div class="column is-6">
+              <div class="video-wrapper">
+                <video class="results-media" src="./assets/examples/ID-Crafter_s2v_video5_ph.mp4" loading="lazy"
+                  preload="metadata" autoplay loop muted playsinline></video>
+                <div
+                  style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                  <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                 </div>
               </div>
             </div>
-            <hr class="results-divider" />
-          </tr>
-          <tr class="result-row">
+          </div>
+          <div class="results-pair-wrapper">
+            <div class="columns is-multiline is-vcentered">
+              <div class="column is-6">
+                <div class="results-ref-list">
+                  <div class="results-ref">
+                    <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub1.png" alt="reference 1" />
+                  </div>
+                  <div class="results-ref">
+                    <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub2.png" alt="reference 2" />
+                  </div>
+                  <div class="results-ref">
+                    <img loading="lazy" src="./assets/examples/ID-Crafter_s2v_video5_sub3.png" alt="reference 3" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="column is-6">
+                <div class="prompt-text">
+                  Under warm orange soft light, on a park lawn covered with ginkgo leaves, sunlight filters through
+                  branches, casting light spots. A chubby light brown hedgehog tops before a fuzzy acorn, stretches
+                  pink
+                  paws to nudge it gently, and the acorn rolls slowly once on the leaves, full of cozy autumn charm.
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="results-divider" />
+
             <!-- Example 6 -->
             <div class="columns is-multiline results-grid mt-4">
               <div class="column is-6">
@@ -524,8 +522,8 @@
               </div>
             </div>
             <hr class="results-divider" />
-          </tr>
-          <tr class="result-row">
+ 
+
             <!-- Example 7 -->
             <div class="columns is-multiline results-grid mt-4">
               <div class="column is-6">
@@ -575,8 +573,7 @@
               </div>
             </div>
             <hr class="results-divider" />
-          </tr>
-          <tr class="result-row">
+
             <!-- Example 8 -->
             <div class="columns is-multiline results-grid mt-4">
               <div class="column is-6">
@@ -621,7 +618,6 @@
                 </div>
               </div>
             </div>
-          </tr>
         </div>
       </div>
     </div>

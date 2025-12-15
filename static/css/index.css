@@ -230,7 +230,7 @@ tr.result-row:last-child {
 .results-ref {
   flex: 0 1 auto;  /* 宽度可不同，但在父容器内可收缩 */
   min-width: 0;
-
+  margin: 0.5rem 0;
 }
 
 .results-ref img {
